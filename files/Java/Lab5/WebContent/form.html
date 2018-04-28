@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration by PHP</title>
+<style>
+.class4 input[type=number]::-webkit-inner-spin-button, 
+.class4 input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number], input[type=text] {
+	width: 200px;
+}
+
+input {
+	clear: left;
+	margin-top: -21px;
+	float: right;
+	padding: 5px;
+	padding-left: 10px;
+	border-style:outset;
+	border-color: black;
+}
+
+input[type=submit] {
+	margin-bottom: 150px;
+}
+
+select {
+	clear: left;
+	margin-top: -21px;
+	float: right;
+}
+
+label {
+	clear: right;
+	float: left;
+}
+
+textarea {
+	clear: left;
+	width: 85%;
+	float: right;
+	margin-bottom: 10px;
+	padding: 5px;
+	padding-left: 10px;
+	border-style:outset;
+	border-color: black;
+}
+
+.class1, .class4, .class5 {
+	width: 350px;
+	height: 30px;
+	margin: 10px;
+}
+
+.class2 {
+	width: 350px;
+	height: 90px;
+	margin: 10px;
+}
+
+.class3 {
+	width: 350px;
+	height: 80px;
+	margin: 10px;
+}
+
+.class6 {
+	width: 350px;
+	height: 180px;
+	margin: 10px;
+	margin-top: 16px;
+}
+
+form {
+	background: #82707624;
+    padding: 30px;
+}
+
+button {
+	width: 70px;
+    height: 20px;
+	clear: left;
+	margin-top: -21px;
+	float: right;
+}
+</style>
+</head>
+<body>
+<form action="registrationServlet" method="get">
+Enter your information:<br>
+
+<div class="class1">
+<label>First Name*:</label>
+<input type="text" name="First_Name" placeholder="First Name" required>
+</div>
+
+<div class="class1">
+<label>Last Name*:</label>
+<input type="text" name="Last_Name" placeholder="Last Name" required>
+</div>
+
+<div class="class1">
+<label>Email*:</label>
+<input name="email" type="Email" placeholder="Email" title="Adding multiple emails is available. (use ',' as a separater)" required multiple>
+</div>
+
+<div class="class4">
+<label>Phone*:</label>
+<input type="number" name="Phone" placeholder="Phone" required>
+</div>
+
+<div class="class1">
+<label>Organization:</label>
+<input type="text" name="Organization" placeholder="Organization">
+</div>
+
+<div class="class2">
+<label>Address*:</label>
+<textarea type="text" name="Address" placeholder="Address" rows="4" cols="50" required></textarea>
+</div>
+
+<div class="class1">
+<label>URL Homepage:</label>
+<input name="URL" type="url" placeholder="URL Homepage">
+</div>
+
+<div class="class1">
+<label>City*:</label>
+<input type="text" name="City" placeholder="Choose here" list="cities" required>
+<datalist id="cities">
+	<option value="Bolzano">Bolzano</option>
+	<option value="Bressanone">Bressanone</option>
+	<option value="Brunico">Brunico</option>
+</datalist>
+</div>
+
+<div class="class1">
+<label>Zip Code*:</label>
+<input name="Zip_code" type"number" placeholder="39xxx" pattern="39[0-9]{3}" title="Zip code should contain 5 digits starting with 39. e.g. 39100" required>
+</div>
+
+<div class="class3">
+<label>Payment Mode*:</label>
+<br>
+<div>
+<label>Cash</label>
+<input type="radio" name="Payment_Mode" value="Cash" required>
+<br>
+<label>Paypal</label>
+<input type="radio" name="Payment_Mode" value="Paypal">
+<br>
+<label>Credit Card</label>
+<input type="radio" name="Payment_Mode" value="CreditCard">
+<br>
+</div>
+</div>
+
+<div class="class5">
+<label>Total to Pay*:</label>
+<input name="Total_to_Pay" type="number" min="10" max="150" step=".01" placeholder="Amount in Euro" required>
+</div>
+
+<div class="class1">
+<label>Start Date:</label>
+<input name="Start_Date" type="date">
+</div>
+
+<div class="class6">
+<label>Favorite Color:</label>
+<br>
+<button type="button" id="colorBoxButton" onclick="myFunction()">Choose</button>
+<input type="text" id="colorChosen" name="colorChosen" value="0"></input>
+<input id="colorBox" name="Favorite_Color" style="display: none;" type="color">
+</div>
+
+<input value="Ok" type="submit">
+</form>
+<script>
+window.onload = function() {
+	document.getElementById('colorChosen').style.display = 'none';
+};
+function myFunction() {
+    document.getElementById("colorBox").style.display = "block";
+    document.getElementById("colorBoxButton").style.display = "none";
+	document.getElementById("colorChosen").value = "1";
+}
+</script>
+</body>
+</html>
